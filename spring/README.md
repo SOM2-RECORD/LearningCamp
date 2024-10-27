@@ -1,6 +1,6 @@
 ## spring 실습 
-### 1. DI(의존성 주입, Dependency Injection)
-|이름|난이도|상태|
+#### 1. DI(의존성 주입, Dependency Injection)
+|제목|레벨|상태|
 |:----------|:-----------:|:------------:|
 |2200. 자동차관리 Spring DI|Lv.1|✅|
 |2201. 영화관리 Spring DI|Lv.2|✅|
