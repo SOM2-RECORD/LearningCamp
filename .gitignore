@@ -1,0 +1,11 @@
+# 빌드 산출물 무시
+target/
+bin/
+
+# IDE 관련 파일 무시
+*.class
+*.log
+
+# 운영체제 관련 파일 무시
+.DS_Store
+Thumbs.db
