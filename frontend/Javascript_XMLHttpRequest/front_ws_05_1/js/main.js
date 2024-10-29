@@ -19,22 +19,22 @@ window.onload = function () {
   }
 
   // ajax를 위한 객체 생성
-  const xhr = new _________;
+  const xhr = new XMLHttpRequest;
   const method = "GET";
   // 데이터 경로 입력.
-  const url = "_________";
+  const url = "./data/car.json";
 
   // 요청을 초기화 하기 위한 메서드
-  xhr._________(method, url);
+  xhr.open(method, url);
   // 헤더 정보 초기화 메서드
-  xhr._________("Content-Type", "application/text");
+  xhr.setRequestHeader("Content-Type", "application/text");
 
   // 객체 상태 변화 이벤트 핸들러 함수 정의
-  xhr._________ = function () {
+  xhr.onreadystatechange = function () {
     // 데이터를 모두 수신하였다면
-    if (xhr.readyState === _________) {
+    if (xhr.readyState === 4) {
       // 상태코드가 성공일때
-      if (xhr.status === _________) {
+      if (xhr.status === 200) {
         const resJson = JSON.parse(xhr.responseText);
         const carData = resJson.cars;
         let carList = document.querySelector(".content-car-list-ul");
@@ -63,7 +63,7 @@ window.onload = function () {
     }
   };
   // 요청 보내기
-  xhr._________();
+  xhr.send();
 
   // ES6 fetch를 사용한 비동기 통신
   // fetch("data/car.json", {
