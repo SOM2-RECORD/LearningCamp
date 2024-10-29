@@ -1,0 +1,65 @@
+[
+  {
+    "code": "L00001",
+    "category": "laptop",
+    "img": "laptop1.jpg",
+    "name": "파워노트북",
+    "price": 500000,
+    "brand": "삼성",
+    "desc": "성능이 좋은 파워노트북입니다."
+  },
+  {
+    "code": "L00002",
+    "category": "laptop",
+    "img": "laptop2.jpg",
+    "name": "울트라노트북",
+    "price": 1000000,
+    "brand": "삼성",
+    "desc": "성능을 극도로 끌어 올린 울트라 노트북입니다."
+  },
+  {
+    "code": "R00001",
+    "category": "refrigerator",
+    "img": "refrigerator1.jpg",
+    "name": "양문형냉장고",
+    "price": 1500000,
+    "brand": "삼성",
+    "desc": "프리미엄 양문형 냉장고 입니다"
+  },
+  {
+    "code": "R00002",
+    "category": "refrigerator",
+    "img": "refrigerator2.jpg",
+    "name": "씽씽냉장고",
+    "price": 1000000,
+    "brand": "삼성",
+    "desc": "기본형 냉장고 입니다"
+  },
+  {
+    "code": "R00003",
+    "category": "refrigerator",
+    "img": "refrigerator3.jpg",
+    "name": "투도어냉장고",
+    "price": 700000,
+    "brand": "삼성",
+    "desc": "보급형 투도어 냉장고 입니다"
+  },
+  {
+    "code": "S00001",
+    "category": "smartphone",
+    "img": "smartphone1.jpg",
+    "name": "우주폰S",
+    "price": 1500000,
+    "brand": "삼성",
+    "desc": "프리미엄 스마트폰 입니다"
+  },
+  {
+    "code": "S00002",
+    "category": "smartphone",
+    "img": "smartphone2.jpg",
+    "name": "은하폰S",
+    "price": 1200000,
+    "brand": "삼성",
+    "desc": "양산형 스마트폰 입니다"
+  }
+]
