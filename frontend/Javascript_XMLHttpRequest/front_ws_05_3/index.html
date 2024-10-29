@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSAFY BookCafe</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- 외부 CSS 파일 링크 -->
 </head>
 <body>
-  
+    <div class="sidebar">
+        <div class="profile">
+            <img src="img/noimg.png" alt="Profile Image" />
+        </div>
+        <ul class="menu">
+            <li>서울</li>
+            <li>대전</li>
+            <li>구미</li>
+            <li>광주</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>SSAFY BookCafe</h1>
+
+        <div class="book-section">
+            <h2>프로그래밍 언어</h2>
+            <div class="book-list" id="programming-books">
+              <ul>
+                <li>
+                  <div><img src="img/book/p_book01.png"></div>
+                  <div>Do it 점프 투 파이썬 (18,800원)</div>
+                </li>
+                <li>
+                  <div><img src="img/book/p_book02.png"></div>
+                  <div>HTML5 API 프로그래밍 (23,000원)</div>
+                </li>
+                <li>
+                  <div><img src="img/book/p_book03.png"></div>
+                  <div>백견불여일타 Vue.js입문 (22,000원)</div>
+                </li>
+                <li>
+                  <div><img src="img/book/p_book04.png"></div>
+                  <div>Java 프로그래밍 (26,500원)</div>
+                </li>
+                <li>
+                  <div><img src="img/book/p_book05.png"></div>
+                  <div>토비의 스프링 3.1 (40,000원)</div>
+                </li>
+              </ul> 
+
+
+
+            </div>
+        </div>
+
+        <div class="book-section">
+            <h2>에세이</h2>
+            <div class="book-list" id="essay-books"></div>
+        </div>
+    </div>
+
+    <script src="main.js"></script> <!-- 외부 JavaScript 파일 -->
 </body>
 </html>
