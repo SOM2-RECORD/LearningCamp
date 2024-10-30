@@ -29,8 +29,6 @@
 
 ### 실습
 
-✅
-
 |제목|레벨|프로젝트이름|상태|
 |:----------|:-----------:|:----------|:------------:|
 |2108. 찜 자동차 LocalStorage 실습|Lv1|front_ws_04_1||
@@ -38,8 +36,8 @@
 |2110. 도서관리 BookCate 설문조사구현|Lv3|front_ws_04_3||
 |2111. 맛집관리 예약, 리뷰 기능 상세구현|Lv4|front_ws_04_4||
 |2112. 게시판  LocalStorage 활용|Lv5|front_ws_04_5||
-|3164. querySelector 연습하기|Lv1|front_ws_04_a||
-|3165. addEventListener 연습하기|front_ws_04_b|Lv2||
+|3164. querySelector 연습하기|Lv1|front_ws_04_a|✅|
+|3165. addEventListener 연습하기|front_ws_04_b|Lv2|✅|
 |3166. localStorage 연습하기|Lv3|front_ws_04_c||
 
 ### 과제
