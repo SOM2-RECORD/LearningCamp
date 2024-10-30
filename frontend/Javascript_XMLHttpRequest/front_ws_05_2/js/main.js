@@ -2,12 +2,12 @@
 window.onload = function () {
   if (!document.querySelector(".content-movie-list-ul")) return;
 
-  const xhr = new XMLHttpRequest;
+  const xhr = new XMLHttpRequest();
   const method = "GET";
   const url = "./data/movie.json";
 
   xhr.open(method, url);
-  xhr.setRequestHeader("Content-Type", "application/text")
+  xhr.setRequestHeader("Content-Type", "application/json")
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState === xhr.DONE) {
@@ -17,25 +17,29 @@ window.onload = function () {
 
         let movieList = document.querySelector(".content-movie-list-ul");
         for(let i = 0; i < movieData.length; i++) {
-          let movieItem = `
-            <li>
-              <div>
-                <img src="${movieData[i]["img"]}" alt=""/>
-              </div>
-              <div>
-                <div>${movieData[i]["title"]}</div>
-                <hr>
-                <div>${movieData[i]["genre"]}</div>
-                <div>${movieData[i]["director"]}</div>
-                <div>${movieData[i]["runningTime"]}</div>
-                <button type="button">찜</button>
-              </div>
-            </li>
+          let movieItem = document.createElement("li")
+          
+          movieItem.innerHTML = `
+            <div>
+              <img src="${movieData[i]["img"]}" alt=""/>
+            </div>
+            <div>
+              <div>${movieData[i]["title"]}</div>
+              <hr>
+              <div>${movieData[i]["genre"]}</div>
+              <div>${movieData[i]["director"]}</div>
+              <div>${movieData[i]["runningTime"]}</div>
+              <button type="button">찜</button>
+            </div>
           `;
+          movieList.appendChild(movieItem);
         }
+
 
       }
     }
   }
+
+  xhr.send()
 
 }
