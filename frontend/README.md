@@ -38,7 +38,7 @@
 |2112. 게시판  LocalStorage 활용|Lv5|front_ws_04_5||
 |3164. querySelector 연습하기|Lv1|front_ws_04_a|✅|
 |3165. addEventListener 연습하기|front_ws_04_b|Lv2|✅|
-|3166. localStorage 연습하기|Lv3|front_ws_04_c||
+|3166. localStorage 연습하기|Lv3|front_ws_04_c|✅|
 
 ### 과제
 
