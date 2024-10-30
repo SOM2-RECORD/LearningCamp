@@ -7,7 +7,7 @@ function regist() {
   let age = document.getElementById("age").value;
 
   // 입력값 검증
-  if (__________) {
+  if (id== '' || password=='' || name=='' || email=='' || age=='') {
     alert("빈칸이 없도록 입력해주세요.");
     return;
   } else {
@@ -21,10 +21,10 @@ function regist() {
     };
 
     // user 객체 문자열로 바꿔서 로컬스토리지에 저장
-    _____________________("user", _____________(user));
+    localStorage.setItem("user", JSON.stringify(user));
     alert("사용자 등록 성공!");
     // 로그인 화면으로 돌아가기
-    _____________("login.html");
+    window.location.assign("login.html");
   }
 }
 
@@ -34,13 +34,13 @@ function login() {
   let password = document.getElementById("password").value;
 
   // 로컬스토리지에 "user" 키로 저장된 item 가져와서 json 객체로 만들기
-  const user = __________(___________("user"));
+  const user = JSON.parse(localStorage.getItem("user"));
 
   // 입력값 검증
-  if (__________) {
+  if (user["id"] === id && user["password"] === password) {
     alert("로그인 성공 !");
     // 로그인 성공하면 index 페이지로 이동.
-    _________________("index.html");
+    window.location.assign("index.html");
   } else {
     alert("로그인 실패 !");
   }
