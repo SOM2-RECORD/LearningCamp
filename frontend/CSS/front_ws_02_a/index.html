@@ -10,28 +10,28 @@
         /*
             Q. h2 태그의 텍스트 색상을 초록색으로 적용해 봅시다.
         */
-        ____ {
+        h2 {
          color: green;
         }
 
         /*
             Q. id가 "heading"인 태그의 텍스트 색상을 빨간색으로 적용해 봅시다.
         */
-        ____ {
+        #heading {
             color: red;
         }
 
         /*
             Q. class가 "heading"인 태그의 텍스트 색상을 파란색으로 적용해 봅시다.
         */
-        ____ {
+        .heading {
             color:blue;
         }
 
         /*
             Q. h3 태그와 p 태그 모두 텍스트 색상을 오렌지로 적용해 봅시다.
         */
-        ____ {
+        h3, p {
             color: orange;
         }
 
@@ -40,21 +40,21 @@
         /*
             Q. ul 태그가 가지고있는 자식 태그들 중 li 태그의 텍스트를 빨간색으로 적용해 봅시다.
         */
-        ____ {
+        ul > li {
             color: red;
         }
 
         /*
             Q. ol 태그가 가지고있는 자식 태그들 중 li 태그의 텍스트를 파란색으로 적용해 봅시다.
         */
-        ____ {
+        ol > li {
             color: blue;
         }
 
         /*
             Q. class가 "grandfather"인 태그의 자손 태그 중 class가 "child"인 태그의 텍스트를 초록색으로 적용해 봅시다.
         */
-        ____ ____ {
+        .grandfather .child {
             color: green;
         }
 
@@ -66,7 +66,7 @@
         /*
             Q. class가 "box"인 태그 위로 마우스를 올리면 텍스트는 흰색으로 배경은 검정색이 되도록 적용해 봅시다.
         */
-        .box____ {
+        .box:hover {
             color: white;
             background-color: black;
         }
