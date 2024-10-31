@@ -13,10 +13,10 @@
     <hr>
     <p>전체 학생 목록 : </p>
     <button @click="shuffle">섞기</button>
-    <p>1st : </p>
-    <p>2nd : </p>
-    <p>3th : </p>
-		<p>last : </p>
+    <p>1st : {{students[0]}}</p>
+    <p>2nd : {{students[1]}}</p>
+    <p>3th : {{students[2]}}</p>
+		<p>last : {{students[students.length-1]}}</p>
   </div>
 
   <script>
@@ -39,6 +39,26 @@
    /*
      students = ['홍길동', '이춘향', '금나래', '장보고', '임꺽정', '강감찬']
    */
+
+   const {createApp, ref} = Vue
+
+   const app = createApp({
+    setup(){
+      const students = ref(['홍길동', '이춘향', '금나래', '장보고', '임꺽정', '강감찬'])
+
+      const shuffle = function(){
+        students.value = _.shuffle(students.value)
+        console.log(students.value)
+      }
+
+      return {
+        students, shuffle
+      }
+    }
+   })
+
+   app.mount("#app")
+   
   </script>
 </body>
 </html>
