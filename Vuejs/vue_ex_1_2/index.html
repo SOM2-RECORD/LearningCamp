@@ -9,18 +9,37 @@
 
 <body>
   <div id="app">
-    <h1></h1>
-    <button>+</button>
-    <button>-</button>
+    <h1>{{ count }}</h1>
+    <!-- 템플릿의 '+' 버튼을 클릭하면 호출된다. -->
+    <button v-on:click="increment">+</button>
+    <!-- 템플릿의 '-' 버튼을 클릭하면 호출된다. -->
+    <button v-on:click="decrement">-</button>
   </div>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script>
-    const { createApp } = Vue
+    const { createApp, ref } = Vue
 
     const app = createApp({
       setup() {
-        return {}
+        const count = ref(0) // 1. 정수 0 값을 가지는 반응형 변수 count를 선언한다.
+        // 2. 함수 increment
+        const increment = function() {
+          // 호출하면 반응형 변수 count의 값을 1만큼 증가시킨다.
+          count.value++
+        }
+
+        // 3. 함수 decrement
+        const decrement = function() {
+          // 호출하면 반응형 변수 count의 값을 1 만큼 감소시킨다.
+          count.value--
+        }
+
+        return {
+          count,
+          increment,
+          decrement
+        }
       }
     })
     app.mount('#app')
