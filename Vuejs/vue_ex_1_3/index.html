@@ -10,10 +10,10 @@
 <body>
   <div id="app">
     <h1>User Profile</h1>
-    <p>Name: </p>
-    <p>Age: </p>
-    <button>Change Name</button>
-    <button>Change Age</button>
+    <p>Name: {{user.name}}</p>
+    <p>Age: {{user.age}}</p>
+    <button v-on:click="changeName">Change Name</button>
+    <button v-on:click="changeAge">Change Age</button>
   </div>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -22,12 +22,37 @@
 
     const app = createApp({
       setup() {
+
+        //반응형 변수 user
+          // name 속성 값은 HTML의 첫 번째 p 요소 콘텐츠에 렌더링 된다.
+          // age 속성 값은 HTML의 두 번째 p 요소 콘텐츠에 렌더링 된다.
         const user = ref({
           name: 'Alice',
           age: 30
         })
 
-        return { user }
+        //  함수 changeName
+          // 템플릿의 `Change Name` 버튼을 클릭하면 호출된다.
+          // 호출하면 사용자가 텍스트를 입력할 수 있도록 안내하는 선택적 메시지를 갖고 있는 대화 상자를 띄운다.
+          // 대화 상자의 텍스트 입력 필드에는 현재 반응형 변수 user의 name 속성 값이 출력된다.
+          // 새로운 사용자 입력 값을 반응형 변수 user의 name 속성 값으로 할당한다.
+          // 만약 사용자가 입력을 취소할 경우 반응형 변수 user의 name 속성 값은 이전 값을 유지한다.
+          // changeName는 setup()에서 반환된 객체의 메서드이다.
+        const changeName = function(){
+          let inputName= prompt("변경할 이름을 입력하세요.", user.value.name)
+          if(inputName != null) {
+            user.value.name = inputName
+          }
+        }
+
+        const changeAge = function(){
+          let inputAge = prompt("변경할 나이를 입력하세요.", user.value.age)
+          if(inputAge != null){
+            user.value.age = inputAge
+          }
+        }
+
+        return { user, changeName, changeAge }
       }
     })
     app.mount('#app')
