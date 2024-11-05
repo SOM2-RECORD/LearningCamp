@@ -19,7 +19,7 @@
     <h1>다양한 전시 정보</h1>
     <hr>
     <ul>
-      <li :class="{'is-selected' : isSelected}" :id="enTitle">
+      <li :class="{'is-selected' : is-selected}" :id="enTitle">
         <label for="selected">전시 선택</label>
         <input v-model="isSelected" type="checkbox" name="selected" id="selected">
         <h3>{{koTitle}}</h3>
@@ -75,6 +75,7 @@
 
       function increaseNum(){
         num.value++
+        totalPay.value = num.value * 1000
       }
 
       return {
