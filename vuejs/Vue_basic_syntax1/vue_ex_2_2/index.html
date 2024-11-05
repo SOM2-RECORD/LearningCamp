@@ -11,25 +11,25 @@
   <div id="app">
     <h1>설문조사</h1>
 
-    <form>
+    <form @submit.prevent="submitForm">
       <div>
         <label for="name">이름: </label>
-        <input id="name" type="text">
+        <input v-model="formData.name" id="name" type="text">
       </div>
 
       <div>
         <label for="email">이메일: </label>
-        <input id="email" type="email">
+        <input v-model="formData.email" id="email" type="email">
       </div>
 
       <div>
         <label for="age">나이: </label>
-        <input id="age" type="number">
+        <input v-model="formData.age" id="age" type="number">
       </div>
 
       <div>
         <label for="residence">거주지: </label>
-        <select id="residence" required>
+        <select v-model="formData.residence" id="residence" required>
           <option value="" disabled selected>거주지를 선택하시오.</option>
           <option>서울</option>
           <option>경기</option>
@@ -42,19 +42,19 @@
       <div>
         <label>사용하는 언어: </label>
         <div>
-          <input type="checkbox" id="python" value="Python">
+          <input v-model="formData.languages" type="checkbox" id="python" value="Python">
           <label for="python">Python</label>
         </div>
         <div>
-          <input type="checkbox" id="javascript" value="JavaScript">
+          <input v-model="formData.languages" type="checkbox" id="javascript" value="JavaScript">
           <label for="javascript">JavaScript</label>
         </div>
         <div>
-          <input type="checkbox" id="csharp" value="C#">
+          <input v-model="formData.languages" type="checkbox" id="csharp" value="C#">
           <label for="csharp">C#</label>
         </div>
         <div>
-          <input type="checkbox" id="ruby" value="Ruby">
+          <input v-model="formData.languages" type="checkbox" id="ruby" value="Ruby">
           <label for="ruby">Ruby</label>
         </div>
       </div>
@@ -64,11 +64,34 @@
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script>
-    const { createApp } = Vue
+    const { createApp, ref } = Vue
 
     const app = createApp({
       setup() {
-        return {}
+        const formData = ref({
+          name : '',
+          email : '',
+          age : '',
+          residence : '',
+          languages : []
+
+        })
+
+        function submitForm(){
+          console.log(formData.value.name)
+          console.log(formData.value.email)
+          console.log(formData.value.age)
+          console.log(formData.value.residence)
+
+          for(let lang of formData.value.languages){
+            console.log(lang)
+          }
+        }
+
+        return {
+          formData,
+          submitForm
+        }
       }
     })
 
