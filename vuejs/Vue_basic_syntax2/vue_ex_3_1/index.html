@@ -17,17 +17,28 @@
     <h1>Todo Application</h1>
 
     <ul>
-      <li></li>
+      <li v-for="(value, key) in todos" :key="key">
+        <input type="checkbox" v-model="value.isCompleted">
+        <span :class="{ 'is-completed': value.isCompleted }">{{ value.text }}</span>
+      </li>
     </ul>
   </div>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script>
-    const { createApp } = Vue
+    const { createApp, ref } = Vue
 
     const app = createApp({
       setup() {
-        return {}
+        const todos = ref(
+          {id : 1, text : "출근찍기", isCompleted : false},
+          {id : 2, text : "공부하기", isCompleted : false},
+          {id : 3, text : "퇴근하기", isCompleted : false}
+        )
+
+        return {
+          todos
+        }
       }
     })
 
