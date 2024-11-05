@@ -17,9 +17,9 @@
     <h1>Todo Application</h1>
 
     <ul>
-      <li v-for="(value, key) in todos" :key="key">
-        <input type="checkbox" v-model="value.isCompleted">
-        <span :class="{ 'is-completed': value.isCompleted }">{{ value.text }}</span>
+      <li v-for="todo in todos">
+        <input type="checkbox" v-model="todo.isCompleted">
+        <span :class="{ 'is-completed': todo.isCompleted }">{{ todo.text }}</span>
       </li>
     </ul>
   </div>
@@ -30,11 +30,11 @@
 
     const app = createApp({
       setup() {
-        const todos = ref(
+        const todos = ref([
           {id : 1, text : "출근찍기", isCompleted : false},
           {id : 2, text : "공부하기", isCompleted : false},
           {id : 3, text : "퇴근하기", isCompleted : false}
-        )
+        ])
 
         return {
           todos
