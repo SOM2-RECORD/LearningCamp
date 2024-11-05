@@ -18,18 +18,29 @@
 
 <body>
   <div id="app">
-    <h1>Heading</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, ipsum.</p>
-    <button>Toggle Text Style</button>
+    <h1 :class="colorCrimson">Heading</h1>
+    <p :class="{ 'text-decorate': isDecorate}">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, ipsum.</p>
+    <button @click="toggleDecorate">Toggle Text Style</button>
   </div>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script>
-    const { createApp } = Vue
+    const { createApp, ref } = Vue
 
     const app = createApp({
       setup() {
-        return {}
+        const colorCrimson = ref('text-crimson')
+        const isDecorate = ref(false)
+
+        function toggleDecorate(){
+          isDecorate.value = !isDecorate.value
+        }
+
+        return {
+          colorCrimson,
+          isDecorate,
+          toggleDecorate
+        }
       }
     })
     app.mount('#app')
