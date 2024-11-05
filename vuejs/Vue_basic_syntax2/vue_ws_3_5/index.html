@@ -27,30 +27,35 @@
   <div id="app">
     <h1>다양한 전시 정보</h1>
     <div>
-      <h3>관람 예정인 전시 : </h3>
-      <p>예상 총 금액 : </p>
+      <h3>관람 예정인 전시 : {{ selectedInfos.join(', ') }}
+        <span v-show="selectedInfos.length === 0">관람 예정인 전시가 없습니다.</span>
+      </h3>
+      <p>예상 총 금액 : {{totalPrice}}</p>
     </div>
-    <h3>관람 예정인 전시가 없습니다.</h3>
+    <h3 v-show="selectedInfos.length === 0">관람 예정인 전시가 없습니다.</h3>
     <hr>
     <label for="isActive">전시 중인 정보만 보기</label>
-    <input type="checkbox" id="isActive">
+    <input type="checkbox" id="isActive" v-model="isActive">
     <ul>
-      <li>
-        <div>
+      <li v-for="info in filteredInfos" :key="info.title" :class="{'cheap' : info.price <= 5000, 'expensive' : info.price >= 20000}">
+        <div v-show="info.isActive">
           <label for="isSelected">전시 관람 하기</label>
-          <input type="checkbox" id="isSelected">
+          <input type="checkbox" id="isSelected" v-model="info.isSelected">
         </div>
-        <div style="color: red;">
+        <div v-show="!info.isActive" style="color: red;">
           <p>전시가 종료되어 관람 할 수 없습니다.</p>
         </div>
-        <h3>전시 이름 </h3>
+        <h3>{{info.title}}</h3>
         <hr>
-        <p>전시 장소</p>
-        <p>가격 : </p>
+        <p>{{info.place}}</p>
+        <p>가격 : {{info.price}}</p>
+        <p v-if="info.price == 0">무료 전시입니다.</p>
         <hr>
       </li>
     </ul>
   </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
   <script>
     /*
@@ -66,6 +71,81 @@
         - 이때, join을 활용하여 selectedInfos의 각 값들을 , (쉼표)로 구분하여 나타낸다.
         - selectedInfos의 길이가 0인 경우에는 '관람 예정인 전시가 없습니다.' 문구를 보여준다.
     */
+
+    const {createApp, ref, computed, watch} = Vue
+    const app = createApp({
+      setup(){
+
+        const infos = ref([
+          { title : "무라카미 다카시 : 무라카시좀비", 
+            place : "부산 시립 미술관",
+            price : 1000,
+            isActive : true,
+            isSelected : false
+          },
+          { title : "마우라치오 카텔란 개인전", 
+            place : "리움 미술관",
+            price : 30000,
+            isActive : true,
+            isSelected : false
+          },
+          { title : "조선백자전", 
+            place : "리움 미술관",
+            price : 30000,
+            isActive : true,
+            isSelected : false
+          },
+          { title : "한국 실험미술 1960 - 1970", 
+            place : "국립현대미술관",
+            price : 0,
+            isActive : true,
+            isSelected : false
+          },
+          { title : "에드워드 호퍼 : 길 위에서", 
+            place : "서울 시립 미술관",
+            price : 1000,
+            isActive : false,
+            isSelected : false
+          },
+          { title : "알렉산더 칼더 x 이우환", 
+            place : "국제갤러리 서울점",
+            price : 15000,
+            isActive : false,
+            isSelected : false
+          },
+        ])
+
+        const isActive = ref(false)
+
+        const selectedInfos = ref([])
+
+        const totalPrice = ref(0)
+
+        const filteredInfos = computed(() => {
+          return isActive.value ? infos.value.filter(info => info.isActive) : infos.value
+        })
+
+        watch(infos, () => {
+            const selectedExhibitions = infos.value.filter(info => info.isSelected);
+            selectedInfos.value = selectedExhibitions.map(info => info.title);
+            totalPrice.value = selectedExhibitions.reduce((sum, info) => sum + info.price, 0);
+          },
+          { deep: true }
+        );
+
+
+
+        return {
+          infos,
+          isActive,
+          selectedInfos,
+          totalPrice,
+          filteredInfos
+        }
+      }
+    })
+
+    app.mount("#app")
   </script>
 </body>
 </html>
