@@ -19,22 +19,22 @@
     <h1>다양한 전시 정보</h1>
     <hr>
     <ul>
-      <li :class="{'is-selected' : isSelected}" :id="enTitle">
+      <li :class="{'is-selected' : display.isSelected}" :id="display.enTitle">
         <label for="selected">전시 선택</label>
-        <input v-model="isSelected" type="checkbox" name="selected" id="selected">
-        <h3>{{koTitle}}</h3>
-        <p v-html="description"></p>
+        <input v-model="display.isSelected" type="checkbox" name="selected" id="selected">
+        <h3>{{display.koTitle}}</h3>
+        <p v-html="display.description"></p>
         <hr>
-        <p>{{artMuseum}}</p>
-        <a :href="museumURL">전시장 바로가기</a>
+        <p>{{display.artMuseum}}</p>
+        <a :href="display.museumURL">전시장 바로가기</a>
         <hr>
         <p>입장권 구매하기</p>
         <div>
-          <span :class="{'is-required' : num <= 0}">인원 수 : {{num}} 명 </span>
+          <span :class="{'is-required' : display.num <= 0}">인원 수 : {{display.num}} 명 </span>
           <button @click="decreaseNum">-</button>
           <button @click="increaseNum">+</button>
         </div>
-        <p>총 입장료 : {{totalPay}} 원</p>
+        <p>총 입장료 : {{display.totalPay}} 원</p>
         <hr>
       </li>
     </ul>
@@ -67,7 +67,7 @@
           museumURL : 'https://www.sac.or.kr/',
           description : '<p> &lt;모네 인사이드&gt; 는 빛의 화가 <b>클로드 모네</b>가 남긴 소중한 명작들을 현대적 감각으로 재해석해 음악과 함께 감상하는 미디어아트 전시입니다. </p>',
           num : 0,
-          totalPay : computed(() => num.value * 1000),
+          totalPay : computed(() => display.value.num * 1000),
           isSelected : false
         })
 
