@@ -7,7 +7,7 @@
 </head>
 <body>
   <div id="app">
-    <p>Let's change the font style!</p>
+    <p :style="styleObject">Let's change the font style!</p>
     <hr>
     <p>색상 목록</p>
     <ul>
@@ -23,17 +23,18 @@
     </ul>
     <hr>
 
-    <form>
+    <form @submit.prevent="changeStyle">
       <label for="color">색 입력 : </label>
-      <input type="text" id="color">
+      <input v-model="colorType" type="text" id="color">
       <br>
       <label for="font">글꼴 입력 : </label>
-      <input type="text" id="font">
+      <input v-model="fontType" type="text" id="font">
       <br>
-      <button>변경!</button>
+      <button type="submit">변경!</button>
     </form>
   </div>
 
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script>
     /*
       - Vue3 CDN을 사용한다.
@@ -47,6 +48,35 @@
         - 생성된 객체를 styleObject에 할당한다.
         - 할당이 모두 완료되면 colorType과 fontType의 값을 빈 문자열로 초기화 한다.
     */
+    const {createApp, ref} = Vue
+    const app = createApp({
+      setup(){
+        const colorType = ref('')
+        const fontType = ref('')
+
+        const styleObject = ref({
+          color : '',
+          fontFamily : ''
+        })
+
+        function changeStyle(){
+          styleObject.value.color = colorType.value
+          styleObject.value.fontFamily = fontType.value
+
+          colorType.value = ''
+          fontType.value = ''
+        }
+
+        return {
+          colorType,
+          fontType,
+          styleObject,
+          changeStyle
+        }
+      }
+    })
+
+    app.mount("#app")
   </script>
 </body>
 </html>
