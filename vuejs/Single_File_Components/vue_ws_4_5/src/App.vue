@@ -1,8 +1,21 @@
-<script setup>
-</script>
-
 <template>
-</template>
+    <MainPage/>
+    <br>
+    <SingerList/>
+    </template>
+    
+    <script setup>
+    import MainPage from '@/components/MainPage.vue';
+    import SingerList from '@/components/SingerList.vue';
+    </script>
+    
+    <style>
+    .text-center {
+        text-align: center;
+    }
+    .color-orange{
+        color:orange;
+    }
 
-<style scoped>
-</style>
+    </style>
+      
