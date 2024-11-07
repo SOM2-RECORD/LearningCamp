@@ -1,15 +1,15 @@
 <template>
   <div>
     <h1>쇼핑 애플리케이션</h1>
-    <ul>
-      <ParentChild product-list="productList" />
-    </ul>
+      <ul>
+        <ProductList :products = "products"/>
+      </ul>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-
+import ProductList from '@/components/ProductList.vue'
 let id = 0
 const products = ref([
   { id: id++, name: '사과', price: 1000 },
@@ -20,5 +20,4 @@ const products = ref([
   { id: id++, name: '수박', price: 5000 }
 ])
 
-defineProps(productList({id : Number, name : String, price : Number}))
 </script>
