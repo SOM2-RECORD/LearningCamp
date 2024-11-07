@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1>쇼핑 애플리케이션</h1>
-    <ul></ul>
+    <ul>
+      <ParentChild product-list="productList" />
+    </ul>
   </div>
 </template>
 
@@ -17,4 +19,6 @@ const products = ref([
   { id: id++, name: '복숭아', price: 2000 },
   { id: id++, name: '수박', price: 5000 }
 ])
+
+defineProps(productList({id : Number, name : String, price : Number}))
 </script>
