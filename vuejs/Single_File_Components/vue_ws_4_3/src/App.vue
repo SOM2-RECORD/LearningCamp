@@ -1,8 +1,17 @@
-<script setup>
-</script>
-
 <template>
+<MainPage/>
+<br>
+<SingerList/>
 </template>
 
-<style scoped>
+<script setup>
+import MainPage from '@/components/MainPage.vue';
+import SingerList from '@/components/SingerList.vue';
+</script>
+
+<style>
+.text-center {
+    text-align: center;
+}
 </style>
+  
