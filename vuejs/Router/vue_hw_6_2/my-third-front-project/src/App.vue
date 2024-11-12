@@ -12,4 +12,5 @@
       <RouterLink :to="{name:'other'}">other</RouterLink>
     </nav>
   </header> 
+  <RouterView/>
 </template>
