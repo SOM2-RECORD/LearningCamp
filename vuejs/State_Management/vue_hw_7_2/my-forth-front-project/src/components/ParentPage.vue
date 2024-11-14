@@ -9,6 +9,13 @@
 <script setup>
 import ChildPage from '@/components/ChildPage.vue';
 
+const props = defineProps({
+    familyName : String,
+    father : String,
+    mother : String,
+    children : Array
+})
+
 </script>
 
 <style>

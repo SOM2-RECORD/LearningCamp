@@ -14,13 +14,6 @@ import ParentPage from '@/components/ParentPage.vue';
 const store = userFamilyStore()
 const familyInfos = store.familyInfos
 
-const props = defineProps({
-    familyName : String,
-    father : String,
-    mother : String,
-    children : Array
-})
-
 </script>
 
 <style>
