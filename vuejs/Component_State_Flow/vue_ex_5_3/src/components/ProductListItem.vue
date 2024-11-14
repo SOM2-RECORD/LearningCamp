@@ -6,9 +6,16 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   product: Object
 })
+
+const emit = defineEmits(['add-to-cart'])
+
+const addToCart = () => {
+  emit('add-to-cart', props.product)
+
+}
 </script>
 
 <style scoped>
